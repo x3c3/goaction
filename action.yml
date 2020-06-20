@@ -13,6 +13,10 @@ inputs:
   desc:
     description: "Override action description, the default description is the package synopsis."
     required: false
+  out-path:
+    default: action.yml
+    description: "Path to write yaml file."
+    required: false
   image:
     default: golang:1.14.2-alpine3.11
     description: "Override Docker image to run the action with (See https://hub.docker.com/_/golang?tab=tags)."
@@ -43,6 +47,7 @@ runs:
   - "-path=${{ inputs.path }}"
   - "-name=${{ inputs.name }}"
   - "-desc=${{ inputs.desc }}"
+  - "-out-path=${{ inputs.out-path }}"
   - "-image=${{ inputs.image }}"
   - "-install=${{ inputs.install }}"
   - "-icon=${{ inputs.icon }}"
